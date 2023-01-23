@@ -12,9 +12,12 @@ import java.util.List;
 @RestController
 public class CountriesController implements ICountriesController {
 
-    @Autowired
-    CountryService countryService;
+    private final CountryService countryService;
 
+    @Autowired
+    public CountriesController(CountryService countryService) {
+        this.countryService = countryService;
+    }
 
     @Override
     public GetRouteDto getRoute(String destination, String origin, HttpServletResponse response) {

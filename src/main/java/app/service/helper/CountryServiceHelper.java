@@ -2,13 +2,16 @@ package app.service.helper;
 
 import app.data.exceptions.UnreachableRouteException;
 import app.data.objects.CountryNode;
+import app.data.objects.Pair;
 import app.model.Country;
-import kotlin.Pair;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static app.data.constants.URLS.COUNTRIES;
 
 @Slf4j
 public class CountryServiceHelper {
@@ -113,7 +116,7 @@ public class CountryServiceHelper {
         }
     }
 
-    @NotNull
+
     private static Map<CountryNode, List<Country>> extendRootLevel(Map<String, Country> ccaThreeAndCountryMap,
                                                                    Map<String, CountryNode> globalCountryNameNodeMap,
                                                                    Map<String, CountryNode> localNameNodeMap,
@@ -150,5 +153,13 @@ public class CountryServiceHelper {
         }
 
         originDestinationCountryNodeMap.put(originDestination, successNode);
+    }
+
+    public static void main(String[] args) {
+        RestTemplate restTemplate = new RestTemplate();
+
+        ResponseEntity<String> response = restTemplate.getForEntity(COUNTRIES, String.class);
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getBody());
     }
 }
