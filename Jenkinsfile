@@ -10,13 +10,14 @@ pipeline {
                        echo "mycontainer_id is ${MY_CONTAINER}"
 //                        /* python --version gets executed inside the Container */
 //                        bat "docker exec ${MY_CONTAINER} mvn --version "
+                        bat "mvn -B -DskipTests clean package"
 
 //                        /* the Container gets removed */
 //                        bat "docker rm -f ${MY_CONTAINER}"
                         }
                         echo 'Hello, Maven'
 
-                        sh 'mvn --version'
+//                         sh 'mvn --version'
 //                         sh 'mvn -B -DskipTests clean package'
                         }
                     }
