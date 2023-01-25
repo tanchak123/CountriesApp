@@ -2,6 +2,7 @@ pipeline {
     agent none
     stages {
         stage('Build') {
+            echo 'Hello, Maven_first'
             agent { docker 'maven:3.8.5-openjdk-17' }
             steps {
                 echo 'Hello, Maven'
@@ -9,6 +10,7 @@ pipeline {
             }
         }
         stage('Run') {
+            echo 'Hello, JDK_first'
             agent { docker 'docker.io/library/openjdk:17' }
             steps {
                 echo 'Hello, JDK'
