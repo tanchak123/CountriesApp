@@ -2,17 +2,16 @@ pipeline {
     agent none
     stages {
         stage('Build') {
-//             agent {
-//              docker {
-//                 image 'maven:3.8-openjdk-17'
-//             }}
             steps {
-                withDockerContainer (image: 'maven:3.8-openjdk-17') {
+            agent {
+             docker {
+                image 'maven:3.8-openjdk-17'
+            }
+            echo 'Hello, Maven'
 
-                echo 'Hello, Maven'
-
-                 sh 'mvn -B -DskipTests clean package'
-                 }
+            sh 'mvn -B -DskipTests clean package'
+            }
+            }
             }
         }
         stage('Run') {
