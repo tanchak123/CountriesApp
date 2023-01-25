@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             agent {
+                label 'windows'
                 docker {
-                    args '-nosplash'
+//                     args '-nosplash'
 
 //                     args 'msys_no_pathconv=1'
                     image 'maven:3.8-openjdk-17'
