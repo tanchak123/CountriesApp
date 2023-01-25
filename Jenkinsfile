@@ -7,10 +7,10 @@ pipeline {
                     docker {
                     image 'maven:3.8-openjdk-17'
                     }
+                }
             echo 'Hello, Maven'
 
             sh 'mvn -B -DskipTests clean package'
-                }
             }
         }
         stage('Run') {
