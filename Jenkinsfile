@@ -33,10 +33,17 @@ pipeline {
 //             }
 //         }
         stage('Run') {
-            agent { docker {image 'docker.io/library/openjdk:17' }}
-            steps {
+//             agent { docker {image 'docker.io/library/openjdk:17' }}
+
+                        steps {
+                script {
+                   /* the return value gets caught and saved into the variable MY_CONTAINER */
+                   MY_CONTAINER = bat(script: '@docker.io/library/openjdk:17', returnStdout: true).trim()
+                    }
                 echo 'Hello, JDK'
                 sh 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
+                    }
+
             }
         }
     }
