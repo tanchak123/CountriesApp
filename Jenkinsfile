@@ -1,8 +1,5 @@
 pipeline {
     agent none
-        environment {
-              MSYS_NO_PATHCONV=1 docker.exe
-        }
     stages {
 
     stage('build') {
