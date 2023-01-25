@@ -4,7 +4,8 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                image 'maven:3.8-openjdk-17'
+                    MSYS_NO_PATHCONV=1
+                    image 'maven:3.8-openjdk-17'
                 }
             }
             steps {
