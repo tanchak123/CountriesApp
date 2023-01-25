@@ -31,7 +31,7 @@ pipeline {
                     MY_CONTAINER_2 = bat(script: '@docker.io/library/openjdk:17', returnStdout: true).trim()
                 }
             echo 'Hello, JDK'
-            sh 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
+            bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
             }
 
         }
