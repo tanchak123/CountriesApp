@@ -1,7 +1,8 @@
 pipeline {
-    agent {
-                    label 'windows'
-}
+    agent none
+        environment {
+              MSYS_NO_PATHCONV=1 docker.exe "$@"
+        }
     stages {
         stage('Build') {
             agent {
