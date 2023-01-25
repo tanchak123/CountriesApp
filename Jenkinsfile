@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             agent { docker 'maven:3.8-openjdk-17' }
-//             steps {
-//                 echo 'Hello, Maven'
+            steps {
+                echo 'Hello, Maven'
 //                 sh 'mvn -B -DskipTests clean package'
-//             }
+            }
         }
         stage('Run') {
             agent { docker 'docker.io/library/openjdk:17' }
