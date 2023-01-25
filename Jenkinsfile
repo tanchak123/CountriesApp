@@ -7,7 +7,7 @@ pipeline {
 //                 image 'maven:3.8-openjdk-17'
 //             }}
             steps {
-                withDockerContainer (image: 'busybox') {
+                withDockerContainer (image: 'maven:3.8-openjdk-17') {
 
                 echo 'Hello, Maven'
 
