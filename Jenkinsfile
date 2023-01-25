@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             agent { docker {
-                image maven:3.8-openjdk-17
+                image 'maven:3.8-openjdk-17'
                 reuseNode true
             }}
             steps {
