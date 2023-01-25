@@ -8,7 +8,7 @@ pipeline {
             }}
             steps {
                 echo 'Hello, Maven'
-/                 sh 'mvn -B -DskipTests clean package'
+                 sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Run') {
