@@ -12,7 +12,7 @@ pipeline {
             agent { docker 'docker.io/library/openjdk:17' }
             steps {
                 echo 'Hello, JDK'
-                sh 'java -jar target/demodocker-0.0.1-SNAPSHOT.jar'
+                sh 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
             }
         }
     }
