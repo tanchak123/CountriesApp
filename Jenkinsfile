@@ -1,6 +1,7 @@
 pipeline {
-    agent { label "build" }
+    agent none
     stages {
+    node {
         stage('Build') {
 //             agent {
 //              docker {
@@ -13,6 +14,7 @@ pipeline {
 
                  sh 'mvn -B -DskipTests clean package'
                  }
+            }
             }
         }
         stage('Run') {
