@@ -1,5 +1,5 @@
 # the first stage of our build will use a maven 3.6.3 parent image
-FROM maven:3.8.5-openjdk-17 AS MAVEN_BUILD
+FROM maven:3.8-openjdk-17 AS MAVEN_BUILD
 
 # copy the pom and src code to the container
 COPY ./ ./
