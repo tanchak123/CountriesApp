@@ -19,6 +19,7 @@ pipeline {
                         }
                         echo 'Hello, Maven'
 
+
                         sh 'mvn --version'
 //                         sh 'mvn -B -DskipTests clean package'
                         }
