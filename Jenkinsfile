@@ -2,6 +2,7 @@ pipeline {
 
 agent none
     stages {
+    node ("windows") {
       stage ('Build') {
       steps{
         git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
@@ -22,6 +23,7 @@ agent none
               sh "mvn clean verify"
 
             }
+      }
       }
       }
     }
