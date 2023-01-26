@@ -11,7 +11,7 @@ pipeline {
                         echo "mycontainer_id is ${MY_CONTAINER}"
 //                        /* python --version gets executed inside the Container */
                         bat "docker exec ${MY_CONTAINER} mvn --version "
-                        bat "docker exec ${MY_CONTAINER} mvn clean "
+//                         bat "docker exec ${MY_CONTAINER} mvn clean "
 
 //                         bat "docker exec ${MY_CONTAINER} 'mvn -B -DskipTests clean package' "
 
