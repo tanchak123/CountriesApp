@@ -55,18 +55,18 @@ node {
 //                         }
 //                     }
 
-        stage('Run') {
-//             agent { docker {image 'docker.io/library/openjdk:17' }}
-
-            steps {
-                script {
-                    /* the return value gets caught and saved into the variable MY_CONTAINER */
-                    MY_CONTAINER_2 = bat(script: '@docker.io/library/openjdk:17', returnStdout: true).trim()
-                }
-            echo 'Hello, JDK'
-            bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
-            }
-
-        }
-    }
+//         stage('Run') {
+// //             agent { docker {image 'docker.io/library/openjdk:17' }}
+//
+//             steps {
+//                 script {
+//                     /* the return value gets caught and saved into the variable MY_CONTAINER */
+//                     MY_CONTAINER_2 = bat(script: '@docker.io/library/openjdk:17', returnStdout: true).trim()
+//                 }
+//             echo 'Hello, JDK'
+//             bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
+//             }
+//
+//         }
+//     }
 }
