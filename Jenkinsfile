@@ -31,7 +31,7 @@ pipeline {
 // //                         sh 'mvn --version'
 // //                         sh 'mvn -B -DskipTests clean package'
 //                         }
-//                     }
+                    }
 
         stage('Run') {
 //             agent { docker {image 'docker.io/library/openjdk:17' }}
