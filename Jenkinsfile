@@ -4,8 +4,9 @@ pipeline {
 
     stage('build') {
 
-        git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
                 steps {
+                        git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+
 //                     script {
 //                        /* the return value gets caught and saved into the variable MY_CONTAINER */
 //                         MY_CONTAINER = bat(script: '@docker run -d -i maven:3.8-openjdk-17', returnStdout: true).trim()
