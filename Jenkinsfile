@@ -5,8 +5,8 @@ pipeline {
     stage('build') {
 
                 steps {
-                wget 'https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip'
-                unzip 'apache-maven-3.8.6-bin.zip'
+                sh 'wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip'
+                sh 'unzip apache-maven-3.8.6-bin.zip'
                 sh 'cd apache-maven-3.8.6 /opt/maven'
                 sh 'mvn -version'
 //                         git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
