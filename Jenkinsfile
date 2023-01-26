@@ -4,8 +4,8 @@ agent any
     stages {
       stage ('Build') {
       steps{
+        git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
             withMaven(
-                git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
                 // Maven installation declared in the Jenkins "Global Tool Configuration"
                 maven: 'maven-3', // (1)
                 // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
