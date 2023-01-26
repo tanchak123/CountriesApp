@@ -5,11 +5,7 @@ pipeline {
     stage('build') {
 
         git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
-
-        withMaven {
-          sh "mvn -B -DskipTests clean package"
-        } //
-//                 steps {
+                steps {
 //                     script {
 //                        /* the return value gets caught and saved into the variable MY_CONTAINER */
 //                         MY_CONTAINER = bat(script: '@docker run -d -i maven:3.8-openjdk-17', returnStdout: true).trim()
@@ -25,12 +21,15 @@ pipeline {
 // //                        /* the Container gets removed */
 // //                        bat "docker rm -f ${MY_CONTAINER}"
 //                         }
-//                         echo 'Hello, Maven'
+        withMaven {
+          sh "mvn -B -DskipTests clean package"
+        }
+                         echo 'Hello, Maven'
 //
 //
 // //                         sh 'mvn --version'
 // //                         sh 'mvn -B -DskipTests clean package'
-//                         }
+                        }
                     }
 
         stage('Run') {
