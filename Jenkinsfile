@@ -14,7 +14,7 @@ agent any
                 // We recommend to define Maven settings.xml globally at the folder level using
                 // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
                 // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
-                mavenSettingsConfig: 'maven-first-test-cfg' // (3)
+                mavenSettingsConfig: '5818a04b-7474-4880-bba6-c0e1c232f8bd' // (3)
             )
              {
 
