@@ -7,7 +7,7 @@ agent any
         git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
             withMaven(
                 // Maven installation declared in the Jenkins "Global Tool Configuration"
-                maven: 'maven-checked', // (1)
+                maven: 'maven-checked1', // (1)
                 // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
                 mavenLocalRepo: '$WORKSPACE/.repository', // (2)
                 // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
