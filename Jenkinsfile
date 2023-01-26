@@ -1,6 +1,6 @@
 pipeline {
 
-agent ("windows") {
+agent ("windows")
     stages {
       stage ('Build') {
         git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
@@ -23,7 +23,7 @@ agent ("windows") {
             }
       }
     }
-}
+
 
 //     agent any
 //     stages {
