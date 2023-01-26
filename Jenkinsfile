@@ -14,7 +14,8 @@ agent ("windows") {
                 // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
                 // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
                 mavenSettingsConfig: 'my-maven-settings' // (3)
-            ) {
+            )
+             {
 
               // Run the maven build
               sh "mvn clean verify"
@@ -22,7 +23,6 @@ agent ("windows") {
             }
       }
     }
-}
 }
 
 //     agent any
