@@ -23,7 +23,8 @@ pipeline {
 // //                        bat "docker rm -f ${MY_CONTAINER}"
 //                         }
         withMaven {
-          sh "mvn -B -DskipTests clean package"
+            sh 'mvn --version'
+            sh "mvn -B -DskipTests clean package"
         }
                          echo 'Hello, Maven'
 //
