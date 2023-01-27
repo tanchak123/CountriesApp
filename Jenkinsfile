@@ -39,7 +39,7 @@ agent any
 //
 //                 }
 
-                bat 'docker build -t jenkins-build'
+                bat 'docker build -t jenkins-build .'
                 bat 'docker run -d -p 8081:8081 jenkins-build'
                 echo 'Hello, JDK'
 //                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
