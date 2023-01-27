@@ -6,15 +6,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 @Slf4j
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @EnableConfigurationProperties
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnknownHostException {
         Thread.setDefaultUncaughtExceptionHandler(Main::logUncaughtException);
 
         SpringApplication.run(Main.class, args);
+        log.info("Server ip: {}", InetAddress.getLocalHost().getHostAddress());
         log.info("Logger is ready");
 
     }
