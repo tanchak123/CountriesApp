@@ -2,7 +2,7 @@
 FROM maven:3.8-openjdk-17 AS MAVEN_BUILD
 #
 ## copy the pom and src code to the container
-#COPY ./ ./
+COPY ./ ./
 #
 ## package our application code
 #RUN mvn clean package

@@ -1,52 +1,52 @@
 pipeline {
 
 agent any
-    stages {
-        stage ('Build') {
-            steps {
-                git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
-                    withMaven(
-                        // Maven installation declared in the Jenkins "Global Tool Configuration"
-                        maven: 'maven-checked', // (1)
-                        // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
-                        mavenLocalRepo: '$WORKSPACE/.repository', // (2)
-                        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
-                        // We recommend to define Maven settings.xml globally at the folder level using
-                        // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
-                        // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
-                        mavenSettingsConfig: '5818a04b-7474-4880-bba6-c0e1c232f8bd' // (3)
-                    )
-                     {
-
-                      // Run the maven build
-                      bat "mvn --version"
-                      bat "mvn -B -DskipTests clean package"
-                      echo 'Hello, Maven'
-
-                    }
-            }
-        }
-
-        stage('Run') {
-    //             agent { docker {image 'docker.io/library/openjdk:17' }}
-            steps {
-//                 script {
-//                     /* the return value gets caught and saved into the variable MY_CONTAINER */
-//                     MY_JDK_CONTAINER = bat(script: '@docker run -d -i docker.io/library/openjdk:17', returnStdout: true).trim()
-// //                     MY_CONTAINER = bat(script: '@docker run -d -i maven:3.8-openjdk-17', returnStdout: true).trim()
+//     stages {
+//         stage ('Build') {
+//             steps {
+//                 git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+//                     withMaven(
+//                         // Maven installation declared in the Jenkins "Global Tool Configuration"
+//                         maven: 'maven-checked', // (1)
+//                         // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
+//                         mavenLocalRepo: '$WORKSPACE/.repository', // (2)
+//                         // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
+//                         // We recommend to define Maven settings.xml globally at the folder level using
+//                         // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
+//                         // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
+//                         mavenSettingsConfig: '5818a04b-7474-4880-bba6-c0e1c232f8bd' // (3)
+//                     )
+//                      {
 //
-//                     bat "docker exec ${MY_JDK_CONTAINER} 'java -jar target/countries-app-1.0-SNAPSHOT.jar' "
+//                       // Run the maven build
+//                       bat "mvn --version"
+//                       bat "mvn -B -DskipTests clean package"
+//                       echo 'Hello, Maven'
 //
-//                 }
-
-                bat 'cd demo-1'
-                bat 'docker build -t jenkins-build .'
-                bat 'docker run -d -p 8081:8081 jenkins-build'
-                echo 'Hello, JDK'
-//                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
-            }
-        }
-    }
+//                     }
+//             }
+//         }
+//
+//         stage('Run') {
+//     //             agent { docker {image 'docker.io/library/openjdk:17' }}
+//             steps {
+// //                 script {
+// //                     /* the return value gets caught and saved into the variable MY_CONTAINER */
+// //                     MY_JDK_CONTAINER = bat(script: '@docker run -d -i docker.io/library/openjdk:17', returnStdout: true).trim()
+// // //                     MY_CONTAINER = bat(script: '@docker run -d -i maven:3.8-openjdk-17', returnStdout: true).trim()
+// //
+// //                     bat "docker exec ${MY_JDK_CONTAINER} 'java -jar target/countries-app-1.0-SNAPSHOT.jar' "
+// //
+// //                 }
+//
+//                 bat 'cd demo-1'
+//                 bat 'docker build -t jenkins-build .'
+//                 bat 'docker run -d -p 8081:8081 jenkins-build'
+//                 echo 'Hello, JDK'
+// //                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
+//             }
+//         }
+//     }
 }
 
 //     agent any
