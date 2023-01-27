@@ -5,8 +5,14 @@ agent any
         stage ('Stop docker') {
             steps {
                 script {
-                        isUnix = isUnix();
-                        echo "System is ${isUnix}"
+                        result;
+                        if (isUnix();) {
+                            result = "Linux";
+                        } else {
+                            result = "Windows";
+                        }
+                        echo "System is ${result}"
+
                         ID = bat(
                         script: '@docker ps -q --filter ancestor=jenkins-build --format="{{.ID}}""', returnStdout: true)
                         bat "docker stop ${ID}"
