@@ -39,7 +39,7 @@ agent any
             }
         }
     }
-
+}
 
 //     agent any
 //     stages {
