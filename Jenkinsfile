@@ -34,8 +34,7 @@ agent any
                     MY_JDK_CONTAINER = bat(script: '@docker.io/library/openjdk:17', returnStdout: true).trim()
                 }
                 echo 'Hello, JDK'
-                bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
-                }
+//                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
 
             }
         }
@@ -88,4 +87,3 @@ agent any
 //                         }
 //                     }
 
-}
