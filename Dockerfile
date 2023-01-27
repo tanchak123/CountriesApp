@@ -9,6 +9,6 @@ FROM maven:3.8-openjdk-17 AS MAVEN_BUILD
 
 FROM docker.io/library/openjdk:17
 
-COPY --from=MAVEN_BUILD /target/countries-app /project.jar
+COPY --from=MAVEN_BUILD /target/countries-app-1.0-SNAPSHOT.jar /project.jar
 
 CMD ["java", "-jar", "/project.jar"]
