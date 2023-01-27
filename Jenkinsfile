@@ -1,12 +1,12 @@
+def isUnix = isUnix()
 pipeline {
 
 agent any
     stages {
-    def isUnix = isUnix()
-    echo "${isUnix}"
         stage ('Stop docker') {
             steps {
                 script {
+                        echo "System is ${isUnix}"
                         ID = bat(
                         script: '@docker ps -q --filter ancestor=jenkins-build --format="{{.ID}}""', returnStdout: true)
                         bat "docker stop ${ID}"
