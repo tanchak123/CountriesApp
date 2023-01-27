@@ -19,6 +19,7 @@ agent any
              {
 
               // Run the maven build
+              bat "mvn --version"
               bat "mvn clean verify"
 
             }
