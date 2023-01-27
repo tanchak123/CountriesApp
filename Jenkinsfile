@@ -31,7 +31,7 @@ agent any
         stage('Run') {
             steps {
                 bat 'docker build -t jenkins-build .'
-                bat 'docker run -d -p 8081:8080 jenkins-build'
+                bat 'docker run -d -p 8080:8080 jenkins-build'
                 echo 'Hello, JDK'
             }
         }
