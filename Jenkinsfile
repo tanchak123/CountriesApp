@@ -23,8 +23,8 @@ agent any
                       bat "mvn -B -DskipTests clean package"
                       echo 'Hello, Maven'
 //
-//                     }
-//             }
+                    }
+            }
 //         }
 //
         stage('Run') {
