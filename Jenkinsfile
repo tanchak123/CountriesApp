@@ -37,10 +37,11 @@ agent any
         }
         stage ('Push') {
             steps {
-                      bat "docker image tag jenkins-build tanchak12/countries-test-app"
-                      bat "docker push tanchak12/countries-test-app"
-                    }
+                bat "docker login"
+                bat "docker image tag jenkins-build tanchak12/countries-test-app"
+                bat "docker push tanchak12/countries-test-app"
             }
+        }
     }
 }
 
