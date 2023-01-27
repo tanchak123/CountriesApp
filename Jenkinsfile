@@ -3,7 +3,7 @@ pipeline {
 agent any
     stages {
     def isUnix = isUnix()
-    echo isUnix
+    echo "${isUnix}"
         stage ('Stop docker') {
             steps {
                 script {
