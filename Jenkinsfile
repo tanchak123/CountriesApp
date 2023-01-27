@@ -19,8 +19,8 @@ agent any
 //                      {
 //
 //                       // Run the maven build
-//                       bat "mvn --version"
-//                       bat "mvn -B -DskipTests clean package"
+                      bat "mvn --version"
+                      bat "mvn -B -DskipTests clean package"
                       echo 'Hello, Maven'
 //
 //                     }
