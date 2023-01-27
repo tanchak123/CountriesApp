@@ -1,7 +1,7 @@
 pipeline {
 
 agent any
-//     stages {
+    stages {
 //         stage ('Build') {
 //             steps {
 //                 git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
@@ -46,7 +46,7 @@ agent any
 // //                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
 //             }
 //         }
-//     }
+    }
 }
 
 //     agent any
