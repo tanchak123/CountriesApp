@@ -3,7 +3,7 @@ pipeline {
 agent any
     stages {
         stage ('Build') {
-//             steps {
+            steps {
 //                 git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
 //                     withMaven(
 //                         // Maven installation declared in the Jenkins "Global Tool Configuration"
@@ -44,7 +44,7 @@ agent any
 //                 bat 'docker run -d -p 8081:8081 jenkins-build'
 //                 echo 'Hello, JDK'
 // //                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
-//             }
+            }
         }
     }
 }
