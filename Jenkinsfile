@@ -14,7 +14,7 @@ agent any
 
                         ID = bat(
                         script: '@docker ps -q --filter ancestor=jenkins-build --format="{{.ID}}""', returnStdout: true)
-                        if (ID.isEmpty() {
+                        if (ID.isEmpty()) {
                             bat "docker stop ${ID}"
                         }
                 }
