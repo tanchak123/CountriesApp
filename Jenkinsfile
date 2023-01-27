@@ -30,12 +30,16 @@ agent any
         stage('Run') {
     //             agent { docker {image 'docker.io/library/openjdk:17' }}
             steps {
-                script {
-                    /* the return value gets caught and saved into the variable MY_CONTAINER */
-                    MY_JDK_CONTAINER = bat(script: '@docker run -d -i docker.io/library/openjdk:17', returnStdout: true).trim()
-//                     MY_CONTAINER = bat(script: '@docker run -d -i maven:3.8-openjdk-17', returnStdout: true).trim()
+//                 script {
+//                     /* the return value gets caught and saved into the variable MY_CONTAINER */
+//                     MY_JDK_CONTAINER = bat(script: '@docker run -d -i docker.io/library/openjdk:17', returnStdout: true).trim()
+// //                     MY_CONTAINER = bat(script: '@docker run -d -i maven:3.8-openjdk-17', returnStdout: true).trim()
+//
+//                     bat "docker exec ${MY_JDK_CONTAINER} 'java -jar target/countries-app-1.0-SNAPSHOT.jar' "
+//
+//                 }
 
-                }
+                bat 'docker run -d -p 8081:8081 target/countries-app-1.0-SNAPSHOT.jar'
                 echo 'Hello, JDK'
 //                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
             }
