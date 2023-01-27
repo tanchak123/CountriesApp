@@ -6,7 +6,7 @@ agent any
             steps {
                 script {
                         result;
-                        if (isUnix();) {
+                        if (isUnix()) {
                             result = "Linux";
                         } else {
                             result = "Windows";
@@ -15,6 +15,7 @@ agent any
 
                         ID = bat(
                         script: '@docker ps -q --filter ancestor=jenkins-build --format="{{.ID}}""', returnStdout: true)
+                        if (ID != null)
                         bat "docker stop ${ID}"
                 }
             }
