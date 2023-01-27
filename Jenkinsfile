@@ -2,6 +2,17 @@ pipeline {
 
 agent any
     stages {
+        stage ('Stop docker') {
+            steps {
+//             docker rm $(docker stop $(docker ps -a -q --filter ancestor=<jenkins-build> --format="{{.ID}}"))
+
+                script {
+                        ID = bat(
+                        script: '@docker ps -q --filter ancestor=jenkins-build --format="{{.ID}}""', returnStdout: true)
+                        bat "docker stop ${ID}"
+                }
+            }
+        }
         stage ('Build') {
             steps {
 //                 git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
