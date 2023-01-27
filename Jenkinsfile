@@ -21,6 +21,7 @@ agent any
                       // Run the maven build
                       bat "mvn --version"
                       bat "mvn -B -DskipTests clean package"
+                      echo 'Hello, Maven'
 
                     }
             }
@@ -31,11 +32,12 @@ agent any
             steps {
                 script {
                     /* the return value gets caught and saved into the variable MY_CONTAINER */
-                    MY_JDK_CONTAINER = bat(script: '@docker.io/library/openjdk:17', returnStdout: true).trim()
+                    MY_JDK_CONTAINER = bat(script: '@docker run -d -i docker.io/library/openjdk:17', returnStdout: true).trim()
+//                     MY_CONTAINER = bat(script: '@docker run -d -i maven:3.8-openjdk-17', returnStdout: true).trim()
+
                 }
                 echo 'Hello, JDK'
 //                 bat 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
-
             }
         }
     }
