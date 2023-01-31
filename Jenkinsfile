@@ -4,22 +4,22 @@ agent any
     stages {
         stage ('git install') {
             steps {
-                sudo 'yum install git -y'
+                sh 'yum install git -y'
                 echo 'git installed'
             }
         }
 
         stage ('mvn install') {
             steps {
-                sudo 'yum install -y maven.noarch'
+                sh 'yum install -y maven.noarch'
                 echo 'mvn installed'
             }
         }
 
         stage ('Build') {
             steps {
-                      sudo "mvn --version"
-                      sudo "mvn -B -DskipTests clean package"
+                      sh "mvn --version"
+                      sh "mvn -B -DskipTests clean package"
                       echo 'Maven checked project'
                     }
             }
@@ -27,7 +27,7 @@ agent any
             steps {
 //                 bat 'docker build -t jenkins-build .'
 //                 bat 'docker run -d -p 8080:8080 jenkins-build'
-                sudo 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
+                sh 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
                 echo 'project run'
             }
         }
