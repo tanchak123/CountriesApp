@@ -4,6 +4,7 @@ agent any
     stages {
         stage ('git install') {
             steps {
+                sh 'whoami'
                 sh 'sudo su'
                 sh 'cd /'
                 sh 'cd countries-app'
