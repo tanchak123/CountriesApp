@@ -4,14 +4,14 @@ agent any
     stages {
         stage ('git install') {
             steps {
-                sudo yum install git -y
+                sudo 'yum install git -y'
                 echo 'git installed'
             }
         }
 
         stage ('mvn install') {
             steps {
-                sudo yum install -y maven.noarch
+                sudo 'yum install -y maven.noarch'
                 echo 'mvn installed'
             }
         }
