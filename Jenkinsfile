@@ -4,6 +4,9 @@ agent any
     stages {
         stage ('git install') {
             steps {
+                sh 'sudo su'
+                sh 'cd /'
+                sh 'cd countries-app'
                 sh 'yum install git -y'
                 echo 'git installed'
             }
