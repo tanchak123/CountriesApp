@@ -7,7 +7,7 @@ agent any
                 sh 'whoami'
                 sh 'sudo su'
                 sh 'cd /countries-app'
-                sh 'yum install git -y'
+                sh 'sudo yum install git -y'
                 echo 'git installed'
             }
         }
