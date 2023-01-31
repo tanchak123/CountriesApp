@@ -2,46 +2,42 @@ pipeline {
 
 agent any
     stages {
-        stage ('Stop docker') {
+        stage ('git install') {
             steps {
-                script {
-                        result = "Windows"
-                        if (isUnix()) {
-                            result = "Linux";
-                        }
-
-                        echo "System is ${result}"
-
-                        ID = bat(
-                        script: '@docker ps -q --filter ancestor=jenkins-build --format="{{.ID}}""', returnStdout: true)
-                        echo "${ID}"
-                        if (!ID.isEmpty()) {
-                            bat "docker stop ${ID}"
-                        }
-                }
+                sudo yum install git -y
+                echo 'git installed'
             }
         }
+
+        stage ('mvn install') {
+            steps {
+                sudo yum install -y maven.noarch
+                echo 'mvn installed'
+            }
+        }
+
         stage ('Build') {
             steps {
-                      bat "mvn --version"
-                      bat "mvn -B -DskipTests clean package"
-                      echo 'Hello, Maven'
+                      sudo "mvn --version"
+                      sudo "mvn -B -DskipTests clean package"
+                      echo 'Maven checked project'
                     }
             }
         stage('Run') {
             steps {
-                bat 'docker build -t jenkins-build .'
-                bat 'docker run -d -p 8080:8080 jenkins-build'
-                echo 'Hello, JDK'
+//                 bat 'docker build -t jenkins-build .'
+//                 bat 'docker run -d -p 8080:8080 jenkins-build'
+                sudo 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
+                echo 'project run'
             }
         }
-        stage ('Push') {
-            steps {
-                bat "docker login"
-                bat "docker image tag jenkins-build tanchak12/countries-test-app"
-                bat "docker push tanchak12/countries-test-app"
-            }
-        }
+//         stage ('Push') {
+//             steps {
+//                 bat "docker login"
+//                 bat "docker image tag jenkins-build tanchak12/countries-test-app"
+//                 bat "docker push tanchak12/countries-test-app"
+//             }
+//         }
     }
 }
 
