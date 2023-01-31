@@ -14,15 +14,15 @@ agent any
 
         stage ('mvn install') {
             steps {
-                sh 'yum install -y maven.noarch'
+                sh 'sudo yum install -y maven.noarch'
                 echo 'mvn installed'
             }
         }
 
         stage ('Build') {
             steps {
-                      sh "mvn --version"
-                      sh "mvn -B -DskipTests clean package"
+                      sh "sudo mvn --version"
+                      sh "sudo mvn -B -DskipTests clean package"
                       echo 'Maven checked project'
                     }
             }
@@ -30,7 +30,7 @@ agent any
             steps {
 //                 bat 'docker build -t jenkins-build .'
 //                 bat 'docker run -d -p 8080:8080 jenkins-build'
-                sh 'java -jar target/countries-app-1.0-SNAPSHOT.jar'
+                sh 'sudo java -jar target/countries-app-1.0-SNAPSHOT.jar'
                 echo 'project run'
             }
         }
